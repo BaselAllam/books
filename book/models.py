@@ -7,3 +7,8 @@ class Book(models.Model):
     bookPrice = models.IntegerField(null= False, blank= False)
     bookDescription = models.CharField(null= False, blank= False, default= '', max_length= 125)
     category = models.ForeignKey(Category, on_delete= models.RESTRICT)
+
+
+    def __str__(self):
+        return self.bookName
+    

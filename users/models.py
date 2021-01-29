@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 
-
 class Users(AbstractUser):
     email = models.EmailField(null= False, blank= False, unique= True)
 
