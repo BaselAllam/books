@@ -1,0 +1,20 @@
+<!DOCTYPE html >
+
+<head>
+
+<title> All Category Books </title>
+
+<body>
+<h1> Here is all {{ id }} Books </h1>
+
+{% for i in category_books %}
+
+<ol> 
+<li> <h3> {{ i.bookName }} </h3> </li>
+</ol>
+
+{% endfor %}
+
+ </body>
+
+ </head>

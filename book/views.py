@@ -3,16 +3,23 @@ from book.models import Book
 from django.shortcuts import render
 
 
-
 def first_view(request):
     books = Book.objects.all()
-    return HttpResponse(books)
+    context = {
+        'books' : books
+    }
+    return render(request, 'all_books.html', context)
+    #return HttpResponse(books)
 
 
 
-def search(request, bookName):
+def search(request, id):
     try:
-        book = Book.objects.get(bookName = bookName)
-        return HttpResponse('the book you searched about is {}'.format(book))
+        book = Book.objects.get(id = id)
+        context = {
+            'book' : book
+        }
+        return render(request, 'search_book.html', context)
+        #return HttpResponse('the book you searched about is {}'.format(book))
     except:
         return HttpResponse('no book found')
