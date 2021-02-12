@@ -19,7 +19,9 @@ from books import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_page),
+    path('', views.home_page, name = 'home'),
     path('book/', include('book.urls')),
-    path('category/', include('category.urls'))
+    path('category/', include('category.urls')),
+    path('about/', views.about, name='about'),
+    path('cart/', include('cart.urls'))
 ]

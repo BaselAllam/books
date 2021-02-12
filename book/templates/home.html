@@ -8,22 +8,22 @@
     <img src="https://www.incimages.com/uploaded_files/image/1920x1080/rey-seven-nm-mZ4Cs2I-unsplash_397351.jpg" alt="Nature" style="width:100%">
     <div class="w3-container">
       <h3><b>{{ book.bookName }}</b></h3>
-      <h5> {{ book.bookPrice }}, <span class="w3-opacity">April 7, 2014</span></h5>
+      <h5> {{ book.bookPrice }}, <span class="w3-opacity">{{ book.publishedDate }}</span></h5>
     </div>
 
     <div class="w3-container">
       <p>{{ book.bookDescription }}</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+          <p>
+          <button class="w3-button w3-padding-large w3-white w3-border"> <a href="{% url 'book_details' book.id %}">Read More</a></button>
+          </p>
         </div>
         <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b> {{ book.publishedDate }}  </b> <span class="w3-tag">0</span></span></p>
+          <p><span class="w3-padding-large w3-right"><b>   </b> <span class="w3-tag">0</span></span></p>
         </div>
       </div>
     </div>
-  </div>
-  <hr>
 </div>
 
 {% endfor %}

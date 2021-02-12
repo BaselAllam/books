@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cart.apps.CartConfig',
+    'crispy_forms',
     'users.apps.UsersConfig',
     'category.apps.CategoryConfig',
     'book.apps.BookConfig',

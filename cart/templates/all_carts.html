@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+{% for cart in carts %}
+
+<div class="w3-card-4 w3-margin w3-white">
+    <img src="https://www.incimages.com/uploaded_files/image/1920x1080/rey-seven-nm-mZ4Cs2I-unsplash_397351.jpg" alt="Nature" style="width:100%">
+    <div class="w3-container">
+      <h3><b>User Name: {{cart.user.username}} Book Name: {{ cart.book.bookName }}</b></h3>
+      <h5> {{ cart.book.bookPrice }}, <span class="w3-opacity">{{ cart.book.publishedDate }}</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>{{ cart.book.bookDescription }}</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p>
+          {% if cart.bought == False %}
+          <button class="w3-button w3-padding-large w3-white w3-border"><a href="{% url 'buy' cart.user.id cart.book.id %}">Buy Now</button>
+          {% else %}
+          <button class="w3-button w3-padding-large w3-white w3-border">Track Order</button>
+          {% endif %}
+          </p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>   </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}
